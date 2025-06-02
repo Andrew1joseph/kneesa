@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>بطاركة الأرثوذكس المدافعون عن الإيمان</title>
+   <style>
+       * {
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+       }
+
+       body {
+           font-family: 'Arial', sans-serif;
+           line-height: 1.6;
+           background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+           color: #fff;
+           min-height: 100vh;
+       }
+
+       .container {
+           max-width: 1200px;
+           margin: 0 auto;
+           padding: 0 20px;
+       }
+
+       header {
+           background: rgba(0, 0, 0, 0.3);
+           backdrop-filter: blur(10px);
+           padding: 2rem 0;
+           text-align: center;
+           border-bottom: 3px solid #d4af37;
+       }
+
+       .header-content h1 {
+           font-size: 3rem;
+           margin-bottom: 0.5rem;
+           background: linear-gradient(45deg, #d4af37, #f7dc6f);
+           -webkit-background-clip: text;
+           -webkit-text-fill-color: transparent;
+           background-clip: text;
+           text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+       }
+
+       .header-content p {
+           font-size: 1.2rem;
+           color: #e8e8e8;
+           margin-bottom: 1rem;
+       }
+
+       .cross-icon {
+           font-size: 2rem;
+           color: #d4af37;
+           margin: 1rem 0;
+       }
+
+       .intro-section {
+           background: rgba(255, 255, 255, 0.1);
+           backdrop-filter: blur(5px);
+           margin: 2rem 0;
+           padding: 2rem;
+           border-radius: 15px;
+           border: 1px solid rgba(212, 175, 55, 0.3);
+       }
+
+       .intro-section h2 {
+           color: #d4af37;
+           font-size: 2rem;
+           margin-bottom: 1rem;
+           text-align: center;
+       }
+
+       .intro-section p {
+           font-size: 1.1rem;
+           text-align: center;
+           line-height: 1.8;
+       }
+
+       .patriarchs-grid {
+           display: grid;
+           grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+           gap: 2rem;
+           margin: 3rem 0;
+       }
+
+       .patriarch-card {
+           background: rgba(255, 255, 255, 0.1);
+           backdrop-filter: blur(10px);
+           border-radius: 20px;
+           padding: 2rem;
+           border: 2px solid rgba(212, 175, 55, 0.3);
+           transition: all 0.3s ease;
+           position: relative;
+           overflow: hidden;
+       }
+
+       .patriarch-card::before {
+           content: '';
+           position: absolute;
+           top: 0;
+           left: 0;
+           right: 0;
+           height: 4px;
+           background: linear-gradient(90deg, #d4af37, #f7dc6f, #d4af37);
+       }
+
+       .patriarch-card:hover {
+           transform: translateY(-10px);
+           border-color: #d4af37;
+           box-shadow: 0 15px 35px rgba(212, 175, 55, 0.3);
+       }
+
+       .patriarch-image {
+           width: 120px;
+           height: 120px;
+           border-radius: 50%;
+           margin: 0 auto 1.5rem;
+           border: 4px solid #d4af37;
+           object-fit: cover;
+           display: block;
+           box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+       }
+
+       .patriarch-card h3 {
+           color: #d4af37;
+           font-size: 1.5rem;
+           text-align: center;
+           margin-bottom: 0.5rem;
+       }
+
+       .patriarch-title {
+           text-align: center;
+           color: #f7dc6f;
+           font-size: 1rem;
+           margin-bottom: 1rem;
+           font-style: italic;
+       }
+
+       .patriarch-period {
+           background: rgba(212, 175, 55, 0.2);
+           padding: 0.5rem 1rem;
+           border-radius: 25px;
+           text-align: center;
+           margin-bottom: 1rem;
+           font-weight: bold;
+       }
+
+       .patriarch-achievements {
+           margin-top: 1rem;
+       }
+
+       .patriarch-achievements h4 {
+           color: #d4af37;
+           margin-bottom: 0.5rem;
+           font-size: 1.1rem;
+       }
+
+       .patriarch-achievements ul {
+           list-style: none;
+           padding-right: 1rem;
+       }
+
+       .patriarch-achievements li {
+           margin-bottom: 0.5rem;
+           position: relative;
+           padding-right: 1.5rem;
+       }
+
+       .patriarch-achievements li::before {
+           content: '✞';
+           color: #d4af37;
+           font-weight: bold;
+           position: absolute;
+           right: 0;
+       }
+
+       .section-title {
+           text-align: center;
+           font-size: 2.5rem;
+           color: #d4af37;
+           margin: 3rem 0 2rem;
+           position: relative;
+       }
+
+       .section-title::after {
+           content: '';
+           display: block;
+           width: 100px;
+           height: 3px;
+           background: linear-gradient(90deg, transparent, #d4af37, transparent);
+           margin: 1rem auto;
+       }
+
+       .early-period {
+           background: linear-gradient(135deg, rgba(139, 69, 19, 0.3), rgba(160, 82, 45, 0.2));
+       }
+
+       .medieval-period {
+           background: linear-gradient(135deg, rgba(25, 25, 112, 0.3), rgba(72, 61, 139, 0.2));
+       }
+
+       .modern-period {
+           background: linear-gradient(135deg, rgba(0, 100, 0, 0.3), rgba(34, 139, 34, 0.2));
+       }
+
+       footer {
+           background: rgba(0, 0, 0, 0.5);
+           text-align: center;
+           padding: 2rem 0;
+           margin-top: 3rem;
+           border-top: 2px solid #d4af37;
+       }
+
+       .quote-section {
+           background: rgba(212, 175, 55, 0.1);
+           border-right: 4px solid #d4af37;
+           padding: 1.5rem;
+           margin: 2rem 0;
+           border-radius: 10px;
+           font-style: italic;
+           text-align: center;
+           font-size: 1.1rem;
+       }
+
+       @media (max-width: 768px) {
+           .header-content h1 {
+               font-size: 2rem;
+           }
+           
+           .patriarchs-grid {
+               grid-template-columns: 1fr;
+           }
+           
+           .patriarch-card {
+               padding: 1.5rem;
+           }
+       }
+   </style>
+</head>
+<body>
+   <header>
+       <div class="container">
+           <div class="header-content">
+               <div class="cross-icon">☦</div>
+               <h1>بطاركة الأرثوذكس المدافعون عن الإيمان</h1>
+               <p>حراس العقيدة الأرثوذكسية عبر التاريخ</p>
+               <div class="cross-icon">☦</div>
+           </div>
+       </div>
+   </header>
+
+   <div class="container">
+       <section class="intro-section">
+           <h2>مقدمة تاريخية</h2>
+           <p>
+               عبر التاريخ المسيحي، وقف البطاركة الأرثوذكس كحراس أمناء للعقيدة الصحيحة، متصدين للهرطقات والتعاليم المنحرفة. 
+               هؤلاء الرجال العظام ضحوا بحياتهم وراحتهم من أجل الحفاظ على نقاء الإيمان الأرثوذكسي ونقله للأجيال القادمة.
+               نستعرض هنا أبرز هؤلاء المدافعين الشجعان الذين واجهوا التحديات بإيمان راسخ وحكمة إلهية.
+           </p>
+       </section>
+
+       <div class="quote-section">
+           "الحق لا يخاف من الفحص، والإيمان الصحيح يقوى بالمحاكمة" - القديس يوحنا الذهبي الفم
+       </div>
+
+       <h2 class="section-title">العصر الذهبي المبكر</h2>
+       <div class="patriarchs-grid">
+           <div class="patriarch-card early-period">
+               <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Athanasius_of_Alexandria.jpg" alt="القديس أثناسيوس الرسولي" class="patriarch-image">
+               <h3>القديس أثناسيوس الرسولي</h3>
+               <p class="patriarch-title">بطريرك الإسكندرية العشرون</p>
+               <div class="patriarch-period">328 - 373 م</div>
+               <div class="patriarch-achievements">
+                   <h4>إنجازاته في الدفاع عن الإيمان:</h4>
+                   <ul>
+                       <li>تصدى بقوة للآريوسية التي أنكرت ألوهية المسيح</li>
+                       <li>شارك في مجمع نيقية وساهم في صياغة قانون الإيمان</li>
+                       <li>ألف كتباً لاهوتية مهمة دفاعاً عن العقيدة الصحيحة</li>
+                       <li>تحمل النفي خمس مرات دفاعاً عن الحق</li>
+                       <li>لُقب بـ"عمود الدين" و"الأثناسيوس الرسولي"</li>
+                   </ul>
+               </div>
+           </div>
+
+           <div class="patriarch-card early-period">
+               <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/John_Chrysostom_-_Google_Art_Project_%28cropped%29.jpg" alt="القديس يوحنا الذهبي الفم" class="patriarch-image">
+               <h3>القديس يوحنا الذهبي الفم</h3>
+               <p class="patriarch-title">رئيس أساقفة القسطنطينية</p>
+               <div class="patriarch-period">398 - 407 م</div>
+               <div class="patriarch-achievements">
+                   <h4>إنجازاته في الدفاع عن الإيمان:</h4>
+                   <ul>
+                       <li>واجه الفساد الكنسي والإمبراطوري بشجاعة</li>
+                       <li>ألف عظات وتفاسير كتابية لا تزال مرجعاً حتى اليوم</li>
+                       <li>دافع عن حقوق الفقراء والمضطهدين</li>
+                       <li>رفض التنازل عن مبادئه رغم النفي والاضطهاد</li>
+                       <li>أسس تقليداً قوياً للوعظ الأرثوذكسي</li>
+                   </ul>
+               </div>
+           </div>
+
+           <div class="patriarch-card early-period">
+               <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Saint_Cyril_of_Alexandria.jpg" alt="القديس كيرلس السكندري" class="patriarch-image">
+               <h3>القديس كيرلس السكندري</h3>
+               <p class="patriarch-title">بطريرك الإسكندرية الرابع والعشرون</p>
+               <div class="patriarch-period">412 - 444 م</div>
+               <div class="patriarch-achievements">
+                   <h4>إنجازاته في الدفاع عن الإيمان:</h4>
+                   <ul>
+                       <li>تصدى للنسطورية التي فصلت بين طبيعتي المسيح</li>
+                       <li>ترأس مجمع أفسس الذي أدان نسطور</li>
+                       <li>دافع عن لقب "والدة الإله" للسيدة العذراء</li>
+                       <li>ألف أعمالاً لاهوتية عميقة حول التجسد</li>
+                       <li>أرسى أسس علم الكريستولوجيا الأرثوذكسية</li>
+                   </ul>
+               </div>
+           </div>
+       </div>
+
+       <h2 class="section-title">عصر المجامع والدفاع العقائدي</h2>
+       <div class="patriarchs-grid">
+           <div class="patriarch-card medieval-period">
+               <img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Maximos_the_Confessor_%28Menologion_of_Basil_II%29.jpg" alt="القديس مكسيموس المعترف" class="patriarch-image">
+               <h3>القديس مكسيموس المعترف</h3>
+               <p class="patriarch-title">لاهوتي ومدافع عن الإيمان الأرثوذكسي</p>
+               <div class="patriarch-period">580 - 662 م</div>
+               <div class="patriarch-achievements">
+                   <h4>إنجازاته في الدفاع عن الإيمان:</h4>
+                   <ul>
+                       <li>حارب المونوثيليتية (وحدة المشيئة في المسيح)</li>
+                       <li>دافع عن وجود مشيئتين في المسيح</li>
+                       <li>تحمل التعذيب وقطع لسانه ويده دفاعاً عن الحق</li>
+                       <li>ألف أعمالاً لاهوتية وروحية عميقة</li>
+                       <li>أثر على الفكر الأرثوذكسي لقرون طويلة</li>
+                   </ul>
+               </div>
+           </div>
+
+           <div class="patriarch-card medieval-period">
+               <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/John_of_Damascus_%28Arabic_icon%29.jpg" alt="القديس يوحنا الدمشقي" class="patriarch-image">
+               <h3>القديس يوحنا الدمشقي</h3>
+               <p class="patriarch-title">آخر آباء الكنيسة</p>
+               <div class="patriarch-period">676 - 749 م</div>
+               <div class="patriarch-achievements">
+                   <h4>إنجازاته في الدفاع عن الإيمان:</h4>
+                   <ul>
+                       <li>دافع عن الأيقونات ضد محاربي الأيقونات</li>
+                       <li>ألف "ينبوع الحكمة" - موسوعة لاهوتية شاملة</li>
+                       <li>وضع أسس علم اللاهوت النظامي</li>
+                       <li>حافظ على التراث الأرثوذكسي في العصر الإسلامي</li>
+                       <li>أثر على الفكر المسيحي في الشرق والغرب</li>
+                   </ul>
+               </div>
+           </div>
+
+           <div class="patriarch-card medieval-period">
+               <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Photios_I_of_Constantinople.jpg" alt="القديس فوتيوس الكبير" class="patriarch-image">
+               <h3>القديس فوتيوس الكبير</h3>
+               <p class="patriarch-title">بطريرك القسطنطينية</p>
+               <div class="patriarch-period">858 - 867 و 877 - 886 م</div>
+               <div class="patriarch-achievements">
+                   <h4>إنجازاته في الدفاع عن الإيمان:</h4>
+                   <ul>
+                       <li>دافع عن استقلالية الكنيسة الشرقية</li>
+                       <li>رفض إضافة "الانبثاق من الآب والابن" لقانون الإيمان</li>
+                       <li>نشر المسيحية بين الشعوب السلافية</li>
+                       <li>ألف أعمالاً لاهوتية وأدبية مهمة</li>
+                       <li>حافظ على التقليد الأرثوذكسي ضد التدخل الغربي</li>
+                   </ul>
+               </div>
+           </div>
+       </div>
+
+       <h2 class="section-title">العصر الحديث والمعاصر</h2>
+       <div class="patriarchs-grid">
+           <div class="patriarch-card modern-period">
+               <img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Ecumenical_Patriarch_Athenagoras_I_of_Constantinople.jpg" alt="البطريرك أثيناغوراس الأول" class="patriarch-image">
+               <h3>البطريرك أثيناغوراس الأول</h3>
+               <p class="patriarch-title">بطريرك القسطنطينية المسكوني</p>
+               <div class="patriarch-period">1948 - 1972 م</div>
+               <div class="patriarch-achievements">
+                   <h4>إنجازاته في الدفاع عن الإيمان:</h4>
+                   <ul>
+                       <li>قاد الكنيسة الأرثوذكسية خلال فترات التحدي الشيوعي</li>
+                       <li>عمل على توحيد الكنائس الأرثوذكسية</li>
+                       <li>دافع عن الهوية الأرثوذكسية في العصر الحديث</li>
+                       <li>فتح حواراً مع الكنائس الأخرى دون تنازل عن العقيدة</li>
+                       <li>رمز للصمود الأرثوذكسي في القرن العشرين</li>
+                   </ul>
+               </div>
+           </div>
+
+           <div class="patriarch-card modern-period">
+               <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Patriarch_Bartholomew_I_of_Constantinople.jpg" alt="البطريرك برثولوميوس الأول" class="patriarch-image">
+               <h3>البطريرك برثولوميوس الأول</h3>
+               <p class="patriarch-title">بطريرك القسطنطينية المسكوني الحالي</p>
+               <div class="patriarch-period">1991 - حتى الآن</div>
+               <div class="patriarch-achievements">
+                   <h4>إنجازاته في الدفاع عن الإيمان:</h4>
+                   <ul>
+                       <li>يقود الأرثوذكسية العالمية في القرن الحادي والعشرين</li>
+                       <li>ينظم المجامع الأرثوذكسية العالمية</li>
+                       <li>يدافع عن حقوق الأقليات المسيحية</li>
+                       <li>يحافظ على التقليد الأرثوذكسي وسط التحديات المعاصرة</li>
+                       <li>يعمل على الحوار بين الأديان دون تنازل عن العقيدة</li>
+                   </ul>
+               </div>
+           </div>
+
+           <div class="patriarch-card modern-period">
+               <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Patriarch_Kirill_I_of_Moscow.jpeg" alt="البطريرك كيريل الأول" class="patriarch-image">
+               <h3>البطريرك كيريل الأول</h3>
+               <p class="patriarch-title">بطريرك موسكو وكل روسيا</p>
+               <div class="patriarch-period">2009 - حتى الآن</div>
+               <div class="patriarch-achievements">
+                   <h4>إنجازاته في الدفاع عن الإيمان:</h4>
+                   <ul>
+                       <li>يقود أكبر كنيسة أرثوذكسية في العالم</li>
+                       <li>يدافع عن القيم المسيحية التقليدية</li>
+                       <li>يعمل على نشر الأرثوذكسية عالمياً</li>
+                       <li>يحافظ على التقاليد الروسية الأرثوذكسية</li>
+                       <li>يواجه التحديات العلمانية الحديثة</li>
+                   </ul>
+               </div>
+           </div>
+       </div>
+
+       <div class="quote-section">
+           "الإيمان الأرثوذكسي ليس مجرد تقليد، بل حياة حية تنتقل من جيل إلى جيل بنعمة الروح القدس"
+       </div>
+
+       <section class="intro-section">
+           <h2>خاتمة</h2>
+           <p>
+               هؤلاء البطاركة العظام تركوا لنا إرثاً عظيماً من الإيمان الصحيح والدفاع عن الحق. 
+               إنهم قدوة لكل مؤمن في كيفية الثبات على الإيمان رغم التحديات والصعوبات.
+               فلنتذكر جهادهم ونسير على خطاهم في المحافظة على الإيمان الأرثوذكسي القويم.
+           </p>
+       </section>
+   </div>
+
+   <footer>
+       <div class="container">
+           <p>© 2025 -كنيسه العذراء والانبا رويس </p>
+           <div class="cross-icon">☦</div>
+           <p>"احفظوا الوديعة" - القديس بولس الرسول</p>
+           <p>"اثبت ع متعلمت</p>
+        </div>
+   </footer>
+</body>
+</html>
